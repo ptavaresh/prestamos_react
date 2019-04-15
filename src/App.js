@@ -1,26 +1,18 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from 'react';//Fragment para retornar varios tag sin meterlos en un div
+import './normalize.css';
+import './skeleton.css'
+import Formulario from './componentes/Formulario.js'
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Fragment>
+        <h1>Cotizador de prestamos</h1>
+        <div className="container">
+          <Formulario></Formulario>
+        </div>
+      </Fragment>
     );
   }
 }
