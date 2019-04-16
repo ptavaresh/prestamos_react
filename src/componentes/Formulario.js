@@ -36,7 +36,6 @@ class Formulario extends Component {
 
   render() {
       //aplicar destructuring a state para obtener los valores del state
-      const {cantidad} = this.state;
     return (
         <form onSubmit={this.calcularPrestamo}>
             <div>
