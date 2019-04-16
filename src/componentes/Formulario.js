@@ -6,6 +6,14 @@ class Formulario extends Component {
         plazo: ''
     }
 
+    calcularPrestamo = (e) =>{
+      e.preventDefault();
+      //aplicar destructuring y pasarlo al componente padre
+      const { cantidad, plazo } = this.state;
+
+      this.props.datosPrestamo(cantidad, plazo);
+    }
+
   actualizarState = (e) => {
       //leer los datos del formulario, pasar la "e" del evento y aplucar destructuring para obtener los valores
       const { name, value } = e.target
@@ -30,7 +38,7 @@ class Formulario extends Component {
       //aplicar destructuring a state para obtener los valores del state
       const {cantidad} = this.state;
     return (
-        <form>
+        <form onSubmit={this.calcularPrestamo}>
             <div>
             <label>Cantidad Prestamo:</label>
             <input 
@@ -52,7 +60,7 @@ class Formulario extends Component {
                 </select>
             </div>
             <div>
-                <input 
+                <input //{this.habilitarSubmit()} se ejecuta inmediatamente con () sin parentesis se ejecuta hasta que se indica el evento
                     disabled={this.habilitarSubmit()}
                     type="submit" 
                     value="Calcular" 
